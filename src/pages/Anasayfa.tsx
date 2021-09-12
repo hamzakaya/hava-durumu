@@ -46,4 +46,4 @@ const AnaSayfa = () => {
   );
 };
 
-export default React.memo(AnaSayfa);
+export default AnaSayfa;
