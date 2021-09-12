@@ -11,5 +11,4 @@ const store = configureStore({
 });
 
 export type AppStore = ReturnType<typeof store.getState>;
-
 export default store;
