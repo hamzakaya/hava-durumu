@@ -1,12 +1,12 @@
 import { configureStore } from '@reduxjs/toolkit';
 import appReducer from "./reducers/app";
-import havaDurumu from "./reducers/havaDurumu";
+import havadurumu from "./reducers/havadurumu";
 
 
 const store = configureStore({
   reducer: {
     app: appReducer,
-    data: havaDurumu,
+    data: havadurumu,
   },
 });
 
