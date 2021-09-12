@@ -17,7 +17,7 @@ export const openweathermap = async (sehir: string | object): ResponseType => {
       typeof sehir === "object"
         ? queryString(sehir)
         : `?q=${trToEng(sehir).toLowerCase()}`;
-    return API_BASE_URL + URL + `&lang=tr&appid=${API_KEY}`;
+    return API_BASE_URL + URL + `&cnt=8&lang=tr&appid=${API_KEY}`;
   };
 
   const [bugunURL, haftalikURL] = [createURL(), createURL(true)];
@@ -54,7 +54,9 @@ export const havaDurumuVeriFormat = (res: any): ResponseType => {
   };
   weather.wind.speed = Math.round(weather.wind.speed * 3.6);
 
-  res.haftalikHavaDurumu.list.forEach((i: any, index: number) => {
+  const [, ...haftalikHavaDurumu] = res.haftalikHavaDurumu.list;
+  
+  haftalikHavaDurumu.forEach((i: any, index: number) => {
     forecast.push({
       day: gunAdi(i.dt),
       temp: {
