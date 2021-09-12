@@ -27,7 +27,7 @@ import { havaDurumuDetay } from "../../store/reducers/havadurumu";
 
 const HavaDurumu: React.FC = () => {
   const dispatch = useDispatch();
-  const { weather, dereceTipi, recieved, isLoading, isError } =
+  const { weather, dereceTipi, recieved, isLoading } =
     useSelector(havaDurumuDetay);
 
   if (isLoading || !recieved) return null;

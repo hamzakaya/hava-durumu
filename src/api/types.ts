@@ -36,3 +36,9 @@ export interface IExtendedForecastData {
     description: string;
   };
 }
+
+
+export type ResponseType = {
+  weather: IWeatherData;
+  forecast: IExtendedForecastData[];
+};

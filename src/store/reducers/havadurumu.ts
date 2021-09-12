@@ -6,7 +6,11 @@ import {
 } from "@reduxjs/toolkit";
 import { AppStore } from "..";
 import { openweathermap } from "../../api/openweathermap";
-import { IExtendedForecastData, IWeatherData } from "../../api/types";
+import {
+  IExtendedForecastData,
+  IWeatherData,
+  ResponseType,
+} from "../../api/types";
 
 export interface IWeatherState {
   weatherData: IWeatherData;
@@ -47,9 +51,15 @@ const havaDurumuSlice = createSlice({
       state.isLoading = true;
     },
     [getData.fulfilled]: (state: IWeatherState, action: Action) => {
-      const { weather, forecast } = action.payload;
-      state.weatherData = weather;
-      state.extendedWeatherData = forecast;
+      if (!!action?.payload) {
+        const { weather, forecast }: ResponseType = action.payload;
+        state.weatherData = weather;
+        state.extendedWeatherData = forecast;
+        state.isError = false;
+      } else {
+        state.isError = true;
+      }
+
       state.isLoading = false;
       state.isRecieved = true;
     },
@@ -75,7 +85,6 @@ export const havaDurumuDetay = createSelector(
     isLoading: state.data.isLoading,
     weather: state.data.weatherData,
     recieved: state.data.isRecieved,
-    isError: state.data.isError,
   }),
   (state) => state
 );

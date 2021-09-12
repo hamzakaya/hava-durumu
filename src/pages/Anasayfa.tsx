@@ -14,21 +14,24 @@ import {
 const Anasayfa = () => {
   const dispatch = useDispatch();
   const dispatchData = (data) => dispatch(getData(data));
-  const { loading } = useSelector((state: AppStore) => ({
+  const { loading, isError } = useSelector((state: AppStore) => ({
     loading: state.data.isLoading,
+    isError: state.data.isError,
   }));
 
   useLayoutEffect(() => {
-    konumGonder();
+    if (!isError) konumGonder();
   }, []);
 
   const konumGonder = useCallback(async (sehirAdi) => {
     if (!sehirAdi) {
-      await getPosition()
+      return await getPosition()
         .then(({ coords: { latitude: lat, longitude: lon } }) =>
           dispatchData({ lat, lon })
         )
-        .catch((err) => dispatchData(DEFAULT_CITY));
+        .catch((err) => {
+          dispatchData(DEFAULT_CITY);
+        });
     }
 
     return dispatchData(sehirAdi);
@@ -40,8 +43,14 @@ const Anasayfa = () => {
     <>
       <Header />
       <Search callback={konumGonder} />
-      <HavaDurumu />
-      <HaftalikHavaDurumu />
+
+      {!isError && (
+        <>
+          <HavaDurumu />
+          <HaftalikHavaDurumu />
+        </>
+      )}
+      
     </>
   );
 };

@@ -1,11 +1,6 @@
 import { API_BASE_URL, API_KEY, gunAdi, kelvinToCelcius, queryString, trToEng } from "../utils";
-import { IExtendedForecastData, IWeatherData } from "./types";
+import { IExtendedForecastData, IWeatherData, ResponseType } from "./types";
 const CACHE_DATA = new Map();
-
-type ResponseType = {
-  weather: IWeatherData;
-  forecast: IExtendedForecastData[];
-};
 
 export const openweathermap = async (sehir: string | object): ResponseType => {
   const KEY = JSON.stringify(sehir);
@@ -32,7 +27,9 @@ export const openweathermap = async (sehir: string | object): ResponseType => {
         haftalikHavaDurumu: haftalikData,
       });
     })
-    .catch((err) => console.error(err));
+    .catch((err) => {
+      return reject(err.message);
+    });
 
   CACHE_DATA.set(KEY, JSON.stringify(result));
   return result;
