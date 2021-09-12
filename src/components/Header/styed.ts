@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { ThemeType } from '../../theme';
 
 export const HeaderContainer = styled.header`
   display: flex;
@@ -7,7 +8,7 @@ export const HeaderContainer = styled.header`
   height: 8rem;
 `;
 export const Title = styled.h1`
-  color: ${({ theme }) => theme.appTitleColor};
+  color: ${({ theme }: { theme: ThemeType }) => theme.appTitleColor};
   font-size: 2.2rem;
   font-weight: 100;
   letter-spacing: -2px;
@@ -21,7 +22,7 @@ export const Title = styled.h1`
 export const GithubLink = styled.a`
   margin-left: 1rem;
   svg {
-    fill: ${({ theme }) => theme.appTitleColor};
+    fill: ${({ theme }: { theme: ThemeType }) => theme.appTitleColor};
   }
   &:hover svg {
     fill: #20546a;

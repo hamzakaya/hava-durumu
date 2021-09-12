@@ -1,22 +1,25 @@
 import styled from 'styled-components';
+import { ThemeType } from '../../theme';
 
 export const Container = styled.div`
-  background-color: ${({ theme }) => theme.forecastPanelBgColor};
+  background-color: ${({ theme }: { theme: ThemeType }) =>
+    theme.forecastPanelBgColor};
   border-radius: 0 0 30px 30px;
   padding: 1.5rem 2rem;
   overflow: hidden;
-  box-shadow: 0px -75px 75px -75px #00000042;
+  box-shadow: 0px -75px 75px -75px #0000004d;
   border-top: 2px solid #00000012;
   margin-top: -5px;
 `;
 export const SectionTitle = styled.h6`
   font-weight: 500;
   font-size: 1.125rem;
-  color: ${({ theme }) => theme.panelTitleColor};
+  color: ${({ theme }: { theme: ThemeType }) => theme.panelTitleColor};
   display: block;
   width: 100%;
   text-align: center;
-  border-bottom: 2px solid ${({ theme }) => theme.titleBorderColor};
+  border-bottom: 2px solid
+    ${({ theme }: { theme: ThemeType }) => theme.titleBorderColor};
   padding: 5px 0 10px;
   margin: -10px 0 15px;
 `;

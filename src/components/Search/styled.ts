@@ -1,12 +1,13 @@
 import styled from 'styled-components';
 import LocationIconSvg from "../../assets/location-icon.svg?component";
 import SearchIconSvg from "../../assets/search-icon.svg?component";
+import { ThemeType } from '../../theme';
 
 export const SearchElement = styled.div`
   position: relative;
   height: 3.25rem;
   border-radius: 26px;
-  background: ${({ theme }) => theme.panelBgColor};
+  background: ${({ theme }: { theme: ThemeType }) => theme.panelBgColor};
   box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
   margin-bottom: 1.4rem;
   display: flex;
@@ -19,15 +20,16 @@ export const SearchInput = styled.input`
   margin-left: 1rem;
   height: 3.25rem;
   border: none;
-  background-color: ${({ theme }) => theme.panelBgColor};
+  background-color: ${({ theme }: { theme: ThemeType }) => theme.panelBgColor};
   font-size: 1.125rem;
-  color: ${({ theme }) => theme.searchInput.color};
+  color: ${({ theme }: { theme: ThemeType }) => theme.searchInput.color};
   width: 100%;
   &:focus {
     outline: none;
   }
   &::placeholder {
-    color: ${({ theme }) => theme.searchInput.placeholderColor};
+    color: ${({ theme }: { theme: ThemeType }) =>
+      theme.searchInput.placeholderColor};
   }
 `;
 export const SearchIcon = styled(SearchIconSvg)`
@@ -50,7 +52,8 @@ export const SearchResult = styled.div`
   display: flex;
   flex-direction: column;
   position: absolute;
-  background: ${({ theme }) => theme.searchSuggestion.backgroundColor};
+  background: ${({ theme }: { theme: ThemeType }) =>
+    theme.searchSuggestion.backgroundColor};
   box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
   width: 98%;
   left: 1%;
@@ -65,11 +68,14 @@ export const SuggestionItem = styled.a`
   padding: 0.6rem 1rem;
   display: block;
   text-align: left;
-  border-bottom: 1px dotted ${({ theme }) => theme.searchSuggestion.seperatorLineColor};
+  border-bottom: 1px dotted
+    ${({ theme }: { theme: ThemeType }) =>
+      theme.searchSuggestion.seperatorLineColor};
   font-size: 1rem;
   cursor: pointer;
   &:hover {
-    background-color: ${({ theme }) => theme.searchSuggestion.hoverBackgroundColor};
+    background-color: ${({ theme }: { theme: ThemeType }) =>
+      theme.searchSuggestion.hoverBackgroundColor};
   }
 `;
 

@@ -1,9 +1,10 @@
-import styled from 'styled-components';
+import styled from "styled-components";
+import { ThemeType } from "../../theme";
 
 export const Container = styled.div`
-  background-color: ${({ theme }) => theme.panelBgColor};
+  background-color: ${({ theme }: { theme: ThemeType }) => theme.panelBgColor};
   box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
-  border-radius: 15px;
+  border-radius: 15px 15px 0 0;
   padding: 1.5rem 2rem;
   display: flex;
   flex-direction: column;
@@ -11,7 +12,7 @@ export const Container = styled.div`
 export const SectionTitle = styled.h6`
   font-weight: 500;
   font-size: 1.125rem;
-  color: ${({ theme }) => theme.panelTitleColor};
+  color: ${({ theme }: { theme: ThemeType }) => theme.panelTitleColor};
 `;
 export const CurrentContainer = styled.div`
   display: flex;
@@ -80,7 +81,7 @@ export const Degree = styled.div`
   margin-top: 0.8rem;
   margin-right: 2.5rem;
   svg {
-    fill: ${({ theme }) => theme.smallIconColor};
+    fill: ${({ theme }: { theme: ThemeType }) => theme.smallIconColor};
     margin-right: 1rem;
   }
 `;
@@ -90,14 +91,14 @@ export const InfoRow = styled.div`
   justify-content: flex-start;
   margin-bottom: 0.8rem;
   div {
-    color: ${({ theme }) => theme.smallIconTextColor};
+    color: ${({ theme }: { theme: ThemeType }) => theme.smallIconTextColor};
     display: flex;
     align-items: center;
     font-size: 1rem;
     width: 8rem;
   }
   svg {
-    fill: ${({ theme }) => theme.smallIconColor};
+    fill: ${({ theme }: { theme: ThemeType }) => theme.smallIconColor};
     margin-right: 1rem;
     width: 1.6rem;
     margin-left: -0.3rem;

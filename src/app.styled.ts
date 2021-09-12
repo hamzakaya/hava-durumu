@@ -1,9 +1,9 @@
 import { createGlobalStyle } from 'styled-components';
-import { Theme } from './theme';
+import { Theme, ThemeType } from './theme';
 
 declare module 'styled-components' {
   /* tslint:disable */
-  export interface DefaultTheme extends Theme {}
+  export interface DefaultTheme extends ThemeType {}
 }
 
 export const GlobalStyles = createGlobalStyle`
@@ -24,11 +24,14 @@ body {
   display: flex;
   justify-content: center;
   min-height: 100vh;
-  background: url(${({ theme }) =>
+  background: url(${({ theme }: { theme: ThemeType }) =>
     theme.backgroundImage}) no-repeat center 120%, linear-gradient(${({
   theme,
-}) => theme.backgroundGradient.color1} 0%, ${({ theme }) =>
-  theme.backgroundGradient.color2} 100%);
+}) => theme.backgroundGradient.color1} 0%, ${({
+  theme,
+}: {
+  theme: ThemeType;
+}) => theme.backgroundGradient.color2} 100%);
   background-size: auto;
 }
 #root {
