@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 import { ThemeProvider } from "styled-components";
 import { GlobalStyles } from "./app.styled";
 import { darkTheme, lightTheme } from "./theme";
-import AnaSayfa from "./pages/AnaSayfa";
+import Anasayfa from "./pages/Anasayfa";
 
 
 function App() {
@@ -12,7 +12,7 @@ function App() {
   return (
     <ThemeProvider theme={darkMode ? darkTheme : lightTheme}>
       <GlobalStyles />
-      <AnaSayfa />
+      <Anasayfa />
     </ThemeProvider>
   );
 }

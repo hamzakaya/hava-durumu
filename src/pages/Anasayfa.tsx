@@ -11,7 +11,7 @@ import {
   Spinner,
 } from "../components";
 
-const AnaSayfa = () => {
+const Anasayfa = () => {
   const dispatch = useDispatch();
   const dispatchData = (data) => dispatch(getData(data));
   const { loading } = useSelector((state: AppStore) => ({
@@ -46,4 +46,4 @@ const AnaSayfa = () => {
   );
 };
 
-export default AnaSayfa;
+export default Anasayfa;
