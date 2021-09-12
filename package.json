@@ -3,7 +3,9 @@
   "version": "0.0.1",
   "author": "hamzakaya",
   "scripts": {
-    "start": "vite"
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "serve": "vite preview"
   },
   "dependencies": {
     "@reduxjs/toolkit": "^1.6.1",

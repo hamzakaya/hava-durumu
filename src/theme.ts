@@ -10,6 +10,7 @@ export interface Theme {
   };
   panelBgColor: string;
   panelTitleColor: string;
+  titleBorderColor: string;
   forecastPanelBgColor: string;
   searchInput: {
     color: string;
@@ -38,7 +39,8 @@ export const lightTheme: Theme = {
   },
   panelBgColor: '#FFFFFF',
   panelTitleColor: '#727E8E',
-  forecastPanelBgColor: 'rgba(255, 255, 255, 0.75)',
+  titleBorderColor: '#38c8e642',
+  forecastPanelBgColor: '#fff',
   searchInput: {
     color: '#727E8E',
     placeholderColor: '#6898d5',
@@ -66,6 +68,7 @@ export const darkTheme: Theme = {
   },
   panelBgColor: '#051A33',
   panelTitleColor: '#216397',
+  titleBorderColor: '#02101D',
   forecastPanelBgColor: 'rgba(5, 26, 51, 0.75)',
   searchInput: {
     color: '#5f8bbf',

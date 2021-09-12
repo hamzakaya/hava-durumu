@@ -2,11 +2,11 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
   background-color: ${({ theme }) => theme.forecastPanelBgColor};
-  border-radius: 15px;
+  border-radius: 0 0 30px 30px;
   padding: 1.5rem 2rem;
   overflow: hidden;
-  box-shadow: 0px -75px 75px -75px #0000008c;
-  border-top: 2px solid #00000059;
+  box-shadow: 0px -75px 75px -75px #00000042;
+  border-top: 2px solid #00000012;
   margin-top: -5px;
 `;
 export const SectionTitle = styled.h6`
@@ -16,9 +16,9 @@ export const SectionTitle = styled.h6`
   display: block;
   width: 100%;
   text-align: center;
-  border-bottom: 2px solid ${({ theme }) => theme.backgroundGradient.color2};
-  padding: 5px 0;
-  margin-bottom: 10px;
+  border-bottom: 2px solid ${({ theme }) => theme.titleBorderColor};
+  padding: 5px 0 10px;
+  margin: -10px 0 15px;
 `;
 export const List = styled.div`
   display: flex;
@@ -36,8 +36,12 @@ export const ItemContainer = styled.div`
   margin-top: 1rem;
   h6 {
     font-weight: 600;
-    font-size: 1.125rem;
+    font-size: 0.95rem;
     color: #4581c5;
+    padding-right: 30px;
+    display: block;
+    margin-bottom: 20px;
+    text-align: right;
   }
   svg {
     width: 4rem;
