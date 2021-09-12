@@ -2,9 +2,10 @@
   "name": "hava-durumu",
   "version": "0.0.1",
   "author": "hamzakaya",
+  "license": "MIT",
   "scripts": {
     "dev": "vite",
-    "build": "tsc && vite build",
+    "build": "vite build",
     "serve": "vite preview"
   },
   "dependencies": {

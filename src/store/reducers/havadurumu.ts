@@ -2,6 +2,7 @@ import {
   createAsyncThunk,
   createSlice,
   createSelector,
+  Action,
 } from "@reduxjs/toolkit";
 import { AppStore } from "..";
 import { openweathermap } from "../../api/openweathermap";
@@ -42,17 +43,17 @@ const havaDurumuSlice = createSlice({
   initialState: initialState,
   reducers: {},
   extraReducers: {
-    [getData.pending]: (state, action) => {
+    [getData.pending]: (state: IWeatherState) => {
       state.isLoading = true;
     },
-    [getData.fulfilled]: (state, action) => {
+    [getData.fulfilled]: (state: IWeatherState, action: Action) => {
       const { weather, forecast } = action.payload;
       state.weatherData = weather;
       state.extendedWeatherData = forecast;
       state.isLoading = false;
       state.isRecieved = true;
     },
-    [getData.rejected]: (state, action) => {
+    [getData.rejected]: (state: IWeatherState) => {
       state.isError = true;
       state.isLoading = false;
     },
