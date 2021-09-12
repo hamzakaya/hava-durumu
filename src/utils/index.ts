@@ -14,18 +14,18 @@ export const fahrenheitToCelcius = (f: number) =>
 export const kmToMile = (n: number) => Math.round(n / 1.60934);
 export const mileToKm = (n: number) => Math.round(n * 1.60934);
 
-export const gunAdi = (index: number) =>
-  ["Pazar", "Pazartesi", "Salı", "Çarşamba", "Perşembe", "Cuma", "Cumartesi"][
-    index
-  ];
+export const gunAdi = (timestamp: number) =>
+  new Date(timestamp * 1000).toLocaleString("tr-TR", {
+    month: "long",
+    day: "numeric",
+    weekday: "long",
+  });
 
 export function getPosition(options?: PositionOptions): Promise<Position> {
   return new Promise((resolve, reject) =>
     navigator.geolocation.getCurrentPosition(resolve, reject, options)
   );
 }
-
-
 
 export const queryString = (params) =>
   ["?"]

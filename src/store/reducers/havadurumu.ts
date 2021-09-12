@@ -3,6 +3,7 @@ import {
   createSlice,
   createSelector,
 } from "@reduxjs/toolkit";
+import { AppStore } from "..";
 import { havaDurumuGetir } from '../../api/openweathermap';
 import { IExtendedForecastData, IWeatherData } from '../../api/types';
 import { gunAdi, kelvinToCelcius } from '../../utils';
@@ -88,16 +89,16 @@ const havaDurumuSlice = createSlice({
 });
 
 export const haftalikHavaDurumu = createSelector(
-  (state) => ({
+  (state: AppStore) => ({
     loading: state.data.isLoading,
     recieved: state.data.isRecieved,
     data: state.data.extendedWeatherData,
   }),
-  (state) => state
+  (state: AppStore) => state
 );
 
 export const havaDurumuDetay = createSelector(
-  (state) => ({
+  (state: AppStore) => ({
     dereceTipi: state.app.dereceTipi,
     isLoading: state.data.isLoading,
     weather: state.data.weatherData,
@@ -106,8 +107,6 @@ export const havaDurumuDetay = createSelector(
   }),
   (state) => state
 );
-
-
 
 
 export default havaDurumuSlice.reducer;
@@ -136,7 +135,7 @@ const havaDurumuVeriFormat = (
 
   res.haftalikHavaDurumu.list.forEach((i: any, index: number) => {
     forecast.push({
-      day: gunAdi(index),
+      day: gunAdi(i.dt),
       temp: {
         temp_max: kelvinToCelcius(i.temp.max),
         temp_min: kelvinToCelcius(i.temp.min),
