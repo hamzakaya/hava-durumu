@@ -1,6 +1,6 @@
 import React, { useCallback, useEffect, useLayoutEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getData } from "../store/reducers/havaDurumu";
+import { getData } from "../store/reducers/havadurumu";
 import { AppStore } from "../store";
 import { DEFAULT_CITY, getPosition } from "../utils";
 import {

@@ -23,7 +23,7 @@ import WindIcon from "../../assets/wind-icon.svg?component";
 
 import Derece from "./Derece";
 import { kmToMile, DereceTip } from "../../utils";
-import { havaDurumuDetay } from "../../store/reducers/havaDurumu";
+import { havaDurumuDetay } from "../../store/reducers/havadurumu";
 
 const HavaDurumu: React.FC = () => {
   const dispatch = useDispatch();

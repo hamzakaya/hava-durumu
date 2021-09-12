@@ -1,6 +1,6 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import { haftalikHavaDurumu } from '../../store/reducers/havaDurumu';
+import { haftalikHavaDurumu } from '../../store/reducers/havadurumu';
 import { AppStore } from '../../store/store';
 import Item from './item';
 import { Container, List, SectionTitle } from './styled';
